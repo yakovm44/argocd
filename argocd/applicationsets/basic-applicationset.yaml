@@ -24,7 +24,7 @@ spec:
         repoURL: https://github.com/yakovm44/argocd.git
         targetRevision: HEAD
         directories:
-        - path: guestbook/dev/*
+        - path: guestbook/dev1/*
         - path: guestbook/stg/*
         - path: guestbook/prd/*
       destination:
