@@ -7,28 +7,27 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - list:
-      elements:
-      - cluster: dev
-        url: https://kubernetes.default.svc
-      - cluster: prd
-        url: https://kubernetes.default.svc
-      - cluster: stg
-        url: https://kubernetes.default.svc
+  - git:
+      repoURL: https://github.com/yakovm44/argocd.git
+      revision: HEAD
+      directories:
+      # סורק את כל התיקיות הישירות מתחת ל-dev, stg ו-prd
+      - path: guestbook/dev/*
+      - path: guestbook/stg/*
+      - path: guestbook/prd/*
   template:
     metadata:
-      name: '{{.cluster}}-guestbook'
+      # השם יורכב מהתיקייה של הסביבה ומשם האפליקציה (למשל: dev-my-app)
+      name: '{{index .path.segments 1}}-{{.path.basename}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/yakovm44/argocd.git
         targetRevision: HEAD
-        directories:
-        - path: guestbook/dev1/*
-        - path: guestbook/stg/*
-        - path: guestbook/prd/*
+        # הנתיב הדינמי לכל אפליקציה שנמצאה
+        path: '{{.path.path}}'
       destination:
-        server: '{{.url}}'
+        server: https://kubernetes.default.svc
         namespace: guestbook
       syncPolicy:
         automated:
