@@ -15,6 +15,12 @@ spec:
       - path: guestbook/dev/*
       - path: guestbook/stg/*
       - path: guestbook/prd/*
+
+  - git:
+      repoURL: https://github.com/yakovm44/grade-api-gitops
+      revision: HEAD
+      directories: 
+      - path: "*"
   template:
     metadata:
       # השם יורכב מהתיקייה של הסביבה ומשם האפליקציה (למשל: dev-my-app)
