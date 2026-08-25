@@ -23,7 +23,10 @@ spec:
       source:
         repoURL: https://github.com/yakovm44/argocd.git
         targetRevision: HEAD
-        path: guestbook/{{.cluster}}/*/
+        directories:
+        - path: guestbook/dev/*
+        - path: guestbook/stg/*
+        - path: guestbook/prd/*
       destination:
         server: '{{.url}}'
         namespace: guestbook
