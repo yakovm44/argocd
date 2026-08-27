@@ -15,7 +15,7 @@ spec:
       # - path: guestbook/dev/*
       # - path: guestbook/stg/*
       # - path: guestbook/prd/*
-      - path: apps/*
+      - path: apps/*/*/*/*
 
   template:
     metadata:
@@ -30,7 +30,8 @@ spec:
         path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: "test"
+        #namespace: '{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
