@@ -12,9 +12,9 @@ spec:
       revision: HEAD
       directories:
       # סורק את כל התיקיות הישירות מתחת ל-dev, stg ו-prd
-      - path: */dev/*
-      - path: */stg/*
-      - path: */prd/*
+      - path: guestbook/dev/*
+      - path: guestbook/stg/*
+      - path: guestbook/prd/*
 
   template:
     metadata:
