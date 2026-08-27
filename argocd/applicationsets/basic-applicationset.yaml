@@ -12,9 +12,10 @@ spec:
       revision: HEAD
       directories:
       # סורק את כל התיקיות הישירות מתחת ל-dev, stg ו-prd
-      - path: guestbook/dev/*
-      - path: guestbook/stg/*
-      - path: guestbook/prd/*
+      # - path: guestbook/dev/*
+      # - path: guestbook/stg/*
+      # - path: guestbook/prd/*
+      - path: apps/*
 
   template:
     metadata:
@@ -28,9 +29,8 @@ spec:
         # הנתיב הדינמי לכל אפליקציה שנמצאה
         path: '{{.path.path}}'
       destination:
-        name: '{{index .path.segments 1}}'
-#        server: https://kubernetes.default.svc
-        namespace: guestbook
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
