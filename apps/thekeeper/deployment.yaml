@@ -20,7 +20,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: thekeeper
-          image: ghcr.io/yakovm44/thekeeper:e7adeae95f1921c9ec5b8f0c339dfd934b41abba
+          image: ghcr.io/yakovm44/thekeeper:984bd3bf8d0707c7864962b242e2aa14e741959b
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
