@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thekeeper
+  namespace: thekeeper
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: thekeeper
+  template:
+    metadata:
+      labels:
+        app: thekeeper
+    spec:
+      serviceAccountName: thekeeper
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: thekeeper
+          image: ghcr.io/yakovm44/thekeeper:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: thekeeper-config
+          env:
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: thekeeper-secrets
+                  key: ANTHROPIC_API_KEY
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: thekeeper-config
+  namespace: thekeeper
+data:
+  CHECK_INTERVAL_SECONDS: "60"
+  CPU_THRESHOLD_PERCENT: "90"
+  MEM_THRESHOLD_PERCENT: "90"
+  EXCLUDED_NAMESPACES: "kube-system,kube-node-lease,kube-public"
+  LOG_LEVEL: "INFO"
+  ANTHROPIC_MODEL: "claude-opus-5"
