@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: k8s-agent
-  namespace: default
+  namespace: k8s-ai-agent
 spec:
   selector:
     app: k8s-agent

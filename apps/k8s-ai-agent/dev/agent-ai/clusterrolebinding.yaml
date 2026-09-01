@@ -5,7 +5,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: k8s-agent
-    namespace: default
+    namespace: k8s-ai-agent
 roleRef:
   kind: ClusterRole
   name: k8s-agent
