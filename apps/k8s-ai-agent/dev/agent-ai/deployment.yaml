@@ -17,6 +17,6 @@ spec:
 
       containers:
         - name: agent
-          image: YOUR_REGISTRY/k8s-agent:1.0
+          image: ghcr.io/yakovm44/k8s-ai-agent:23424
           ports:
             - containerPort: 8000
