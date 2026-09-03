@@ -17,6 +17,6 @@ spec:
 
       containers:
         - name: agent
-          image: ghcr.io/yakovm44/k8s-ai-agent:c30a7f7215409448093b91e1d88eeb91ee41b149
+          image: ghcr.io/yakovm44/k8s-ai-agent:11821b6fe52ee78714af3dd5649f4fccb9adffc2
           ports:
             - containerPort: 8000
