@@ -3,10 +3,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  name: my-argocd
+  name: k8s-agent
   namespace: k8s-ai-agent
 spec:
-  ingressClassName: my-argocd
+  ingressClassName: k8s-agent
   rules:
   - http:
       paths:
