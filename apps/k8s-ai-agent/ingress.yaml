@@ -1,0 +1,19 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: my-argocd
+  namespace: k8s-ai-agent
+spec:
+  ingressClassName: my-argocd
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: k8s-agent  # Replace with your Kubernetes Service name
+            port:
+              number: 80
