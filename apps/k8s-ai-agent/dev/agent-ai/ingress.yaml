@@ -16,4 +16,4 @@ spec:
           service:
             name: k8s-agent  # Replace with your Kubernetes Service name
             port:
-              number: 80
+              number: 8000
