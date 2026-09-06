@@ -7,13 +7,14 @@ metadata:
   namespace: k8s-ai-agent
 spec:
   ingressClassName: nginx
-  rules: k8s-agent.com
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: k8s-agent  # Replace with your Kubernetes Service name
-            port:
-              number: 8000
+  rules: 
+    - host: k8s-agent.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: k8s-agent  # Replace with your Kubernetes Service name
+              port:
+                number: 8000
