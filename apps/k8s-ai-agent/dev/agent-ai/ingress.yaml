@@ -6,7 +6,7 @@ metadata:
   name: k8s-agent
   namespace: k8s-ai-agent
 spec:
-  ingressClassName: k8s-agent
+  ingressClassName: nginx
   rules:
   - http:
       paths:
